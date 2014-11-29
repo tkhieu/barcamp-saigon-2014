@@ -421,7 +421,7 @@
 				ORGANIZATIONNAME = TechCamp;
 				TargetAttributes = {
 					FCE5501418D1621D0093388D = {
-						DevelopmentTeam = E6658H2Z45;
+						DevelopmentTeam = 79LTPX7M2F;
 					};
 				};
 			};
@@ -633,14 +633,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hirose Tomonori (UR846NAQKP)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hirose Tomonori (UR846NAQKP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nhan Nguyen (JW88X74PZ4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nhan Nguyen (JW88X74PZ4)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TechCamp/TechCamp-Prefix.pch";
 				INFOPLIST_FILE = "TechCamp/TechCamp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "58cab1d7-c2ba-4e5d-a088-7f622004e7a8";
+				PROVISIONING_PROFILE = "89c57f18-04a4-4354-83ba-1196866e188b";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -651,14 +651,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Shared System,Inc (E6658H2Z45)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shared System,Inc (E6658H2Z45)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nhan Nguyen (79LTPX7M2F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nhan Nguyen (79LTPX7M2F)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TechCamp/TechCamp-Prefix.pch";
 				INFOPLIST_FILE = "TechCamp/TechCamp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b070ef32-fde8-4dd4-ad22-073b9aae110c";
+				PROVISIONING_PROFILE = "fac627d3-1832-4ca2-8382-822881c6a244";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
