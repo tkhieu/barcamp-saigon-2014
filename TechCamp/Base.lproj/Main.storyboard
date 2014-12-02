@@ -378,7 +378,7 @@
         <!--Code View Controller-->
         <scene sceneID="eda-uA-xoo">
             <objects>
-                <viewController id="KkZ-iR-XOx" customClass="TCQRCodeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TCQRCodeViewController" id="KkZ-iR-XOx" customClass="TCQRCodeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kF3-yw-gN8"/>
                         <viewControllerLayoutGuide type="bottom" id="vfg-fT-3zr"/>

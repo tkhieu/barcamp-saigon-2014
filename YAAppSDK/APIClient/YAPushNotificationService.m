@@ -10,7 +10,7 @@
 #import "NSObject+JSON.h"
 
 #import "TCClient.h"
-
+#import "BCTopicClient.h"
 @implementation YAPushNotificationService
 
 + (id)sharedService {
@@ -34,26 +34,34 @@
 #pragma mark Registering
 
 - (void)setupNotification {
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+    else
+    {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
+    }
 }
 
 - (void)removePushNotification {
     
-//    NSString *deviceToken = [NSDEF objectForKey:kInstallationDeviceToken];
-//
-//    if (deviceToken == nil) {
-//        return;
-//    }
-//    
-//    [[TCClient defaultClient] registerPushWithDeviceToken:deviceToken block:^(id object, NSError *error) {
-//        
-//        if (error == nil && object) {
-//            DLog(@"finished remove device token for user");
-//            [NSDEF removeObjectForKey:kInstallationDeviceToken];
-//            [NSDEF synchronize];
-//        }
-//    }];
+    NSString *deviceToken = [NSDEF objectForKey:kInstallationDeviceToken];
+    
+    if (deviceToken == nil) {
+        return;
+    }
+    
+    [[BCTopicClient defaultClient] registerPushWithDeviceToken:deviceToken block:^(id object, NSError *error) {
+        
+        if (error == nil && object) {
+            DLog(@"finished remove device token for user");
+            [NSDEF removeObjectForKey:kInstallationDeviceToken];
+            [NSDEF synchronize];
+        }
+    }];
 }
 
 
@@ -63,8 +71,8 @@
     
     application.applicationIconBadgeNumber = 0;
     if(launchOptions!=nil){
-//        NSString *msg = [NSString stringWithFormat:@"%@", launchOptions];
-//        NSLog(@"%@",msg);
+        //        NSString *msg = [NSString stringWithFormat:@"%@", launchOptions];
+        //        NSLog(@"%@",msg);
         [self createAlert:launchOptions];
     }
     
@@ -76,29 +84,29 @@
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceTokenData {
     
-//    NSString *deviceToken = [[deviceTokenData description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-//    deviceToken = [deviceToken stringByReplacingOccurrencesOfString:@" " withString:@""];
-//    
-//    NSLog(@"deviceToken: %@", deviceToken);
-//    
-//    [[TCClient defaultClient] registerPushWithDeviceToken:deviceToken block:^(id object, NSError *error) {
-//        
-//        if (error == nil && object) {
-//            DLog(@"finished registering device token");
-//            [NSDEF setObject:deviceToken forKey:kInstallationDeviceToken];
-//            [NSDEF synchronize];
-//        }
-//    }];
+    NSString *deviceToken = [[deviceTokenData description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    deviceToken = [deviceToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSLog(@"deviceToken: %@", deviceToken);
+    
+    [[BCTopicClient defaultClient] registerPushWithDeviceToken:deviceToken block:^(id object, NSError *error) {
+        
+        if (error == nil && object) {
+            DLog(@"finished registering device token");
+            [NSDEF setObject:deviceToken forKey:kInstallationDeviceToken];
+            [NSDEF synchronize];
+        }
+    }];
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error {
-	NSLog(@"Failed to register with error : %@", error);    
+    NSLog(@"Failed to register with error : %@", error);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     application.applicationIconBadgeNumber = 0;
-//    NSString *msg = [NSString stringWithFormat:@"%@", userInfo];
-//    NSLog(@"%@",msg);
+    //    NSString *msg = [NSString stringWithFormat:@"%@", userInfo];
+    //    NSLog(@"%@",msg);
     [self createAlert:userInfo];
 }
 

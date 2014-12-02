@@ -12,7 +12,7 @@
 #import "YAObject.h"
 
 
-#define SERVER_API @"https://barcamp-sg.herokuapp.com"
+#define SERVER_API @"https://barcamp-sg.herokuapp.com/api/v1"
 #define SERVER_API_HOST @"barcamp-sg.herokuapp.com"
 
 @interface YAClient : NSObject
