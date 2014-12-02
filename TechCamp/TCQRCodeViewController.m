@@ -15,7 +15,6 @@
 @interface TCQRCodeViewController ()
 
 @property (weak) IBOutlet GPUImageView *cameraView;
-@property (weak, nonatomic) IBOutlet UILabel *labelQRName;
 
 @property SMKDetectionCamera * detector;
 
@@ -70,7 +69,6 @@
                            
                            if (QRCode.length > 0 && !self.isScanned) {
                                self.isScanned = YES;
-                               self.labelQRName.text = QRCode;
                                [self sendQRCode:QRCode];
                            }
                        }
@@ -110,18 +108,20 @@
                             [SVProgressHUD showSuccessWithStatus:@"Vote success"];
                         }
                         else {
-                            
+                            [SVProgressHUD showErrorWithStatus:@"You have voted this presentation!"];
                         }
+                        
+                        [self.navigationController popViewControllerAnimated:YES];
                     }];
-                    
                 }
                 else {
                     [SVProgressHUD showErrorWithStatus:@"QRCode does not exist"];
                 }
+                
             }];
         }
             break;
-            
+        
         case StatusQRCodeVote:
         {
             [client voteWithTopicID:self.topicId QRCode:QRCode block:^(id object, NSError *error) {
@@ -139,7 +139,7 @@
             }];
         }
             break;
-            
+
         default:
             break;
     }

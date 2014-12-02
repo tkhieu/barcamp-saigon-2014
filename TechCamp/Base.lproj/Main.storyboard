@@ -392,24 +392,9 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cST-dl-gym" userLabel="Menus">
                                         <rect key="frame" x="0.0" y="368" width="320" height="200"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyb-r5-ruI">
-                                                <rect key="frame" x="8" y="54" width="304" height="54"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="54" id="1qY-cl-5v8"/>
-                                                    <constraint firstAttribute="width" constant="304" id="KiS-Rg-ROk"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="0.24631025000000001" blue="0.2090717553" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="cyb-r5-ruI" secondAttribute="trailing" constant="8" id="Ky7-Cg-4mw"/>
                                             <constraint firstAttribute="height" constant="200" id="Xxe-Uh-Qok"/>
-                                            <constraint firstItem="cyb-r5-ruI" firstAttribute="top" secondItem="cST-dl-gym" secondAttribute="top" constant="54" id="YOe-Tv-cEG"/>
-                                            <constraint firstItem="cyb-r5-ruI" firstAttribute="leading" secondItem="cST-dl-gym" secondAttribute="leading" constant="8" id="zXl-Cq-zkd"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -432,7 +417,6 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="cameraView" destination="QaA-vr-WUV" id="ivc-F9-to8"/>
-                        <outlet property="labelQRName" destination="cyb-r5-ruI" id="wJ9-F9-WV9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJX-wi-h7Q" sceneMemberID="firstResponder"/>
