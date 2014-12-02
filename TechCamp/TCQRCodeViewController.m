@@ -70,6 +70,7 @@
                            if (QRCode.length > 0 && !self.isScanned) {
                                self.isScanned = YES;
                                [self sendQRCode:QRCode];
+                               return;
                            }
                        }
                    }
