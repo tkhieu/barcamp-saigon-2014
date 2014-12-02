@@ -37,4 +37,7 @@
 - (void)getJsonWithPath:(NSString *)apiPath params:(NSDictionary *)dictionary block:(YAIdResultBlock)block;
 
 - (void)postJsonWithPath:(NSString *)apiPath params:(NSDictionary *)params block:(YAIdResultBlock)block;
+
+- (void)postFormWithPath:(NSString *)apiPath params:(NSDictionary *)params block:(YAIdResultBlock)block;
+
 @end

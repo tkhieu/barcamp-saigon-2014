@@ -133,6 +133,20 @@ static NSString *YAUserIDKey = @"YAUserIDKey";
     }];
 }
 
-
+- (void)postFormWithPath:(NSString *)apiPath params:(NSDictionary *)params block:(YAIdResultBlock)block {
+    NSString *urlString = [SERVER_API stringByAppendingString:apiPath];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    DLogObj(urlString);
+    [manager POST:urlString parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        DLogObj(responseObject);
+        block(responseObject, nil);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        block(nil, error);
+    }];
+}
 
 @end

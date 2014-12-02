@@ -17,6 +17,7 @@
 
 #import "YAConstants.h"
 #import "AppDelegate.h"
+#import "SVProgressHUD.h"
 
 typedef enum {
     StatusQRCodeLogin               = 0,
