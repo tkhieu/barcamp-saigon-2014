@@ -18,7 +18,6 @@
 typedef enum {
   SortByCreatedAt,
   SortByVote,
-  SortByFavorite,
   SortByRandom
 } SortType;
 
@@ -86,7 +85,7 @@ typedef enum {
             [self loadCachedTalks];
             [self.refreshControl endRefreshing];
         } else {
-            [UIAlertView showWithTitle:@"Oops" message:@"Refresh Talks got error! Please try again later." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:NULL];
+            [UIAlertView showWithTitle:@"Oops" message:@"Refresh Topics got error! Please try again later." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:NULL];
         }
     }];
 }
@@ -267,7 +266,7 @@ typedef enum {
 
 
 - (void)showSortOption {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Sort by Submit Date", @"Sort by Vote", @"Sort by Favorite", @"Randomize", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Sort by Submit Date", @"Sort by Vote", @"Randomize", nil];
     
     [actionSheet showFromTabBar:self.tabBarController.tabBar];
 }
@@ -292,16 +291,11 @@ typedef enum {
                 return [obj2.createdAt compare:obj1.createdAt];
             }];
         } break;
-//        case SortByVote: {
-//            self.talks = [_talks sortedArrayUsingComparator:^NSComparisonResult(BCTopic *obj1, BCTopic *obj2) {
-//                return [obj2.voteCount compare:obj1.voteCount];
-//            }];
-//        } break;
-//        case SortByFavorite: {
-//            self.talks = [_talks sortedArrayUsingComparator:^NSComparisonResult(BCTopic *obj1, BCTopic *obj2) {
-//                return [obj2.favCount compare:obj1.favCount];
-//            }];
-//        } break;
+        case SortByVote: {
+            self.talks = [_talks sortedArrayUsingComparator:^NSComparisonResult(BCTopic *obj1, BCTopic *obj2) {
+                return [obj2.vote_count compare:obj1.vote_count];
+            }];
+        } break;
         case SortByRandom: {
             self.talks = [NSObject shuffleArray:_talks];
         } break;

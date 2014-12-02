@@ -10,6 +10,7 @@
 #import "GPUImage.h"
 #import "SMKDetectionCamera.h"
 #import "GPUImageGammaFilter.h"
+#import "BCTopicClient.h"
 
 @interface TCQRCodeViewController ()
 
@@ -28,6 +29,8 @@
 @property (assign, nonatomic) CGAffineTransform portraitRotationTransform;
 @property (assign, nonatomic) CGAffineTransform texelToPixelTransform;
 
+@property (nonatomic) BOOL isScanned;
+
 @end
 
 @implementation TCQRCodeViewController
@@ -35,6 +38,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    switch (self.status) {
+        case StatusQRCodeLogin:
+            self.title = @"Login";
+            break;
+            
+        default:
+            break;
+    }
     
     self.detector = [[SMKDetectionCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480 cameraPosition:AVCaptureDevicePositionBack];
     [self.detector setOutputImageOrientation:UIInterfaceOrientationPortrait];
@@ -53,7 +65,14 @@
                    if (detectedObjects.count) {
                        NSObject *codeObj = detectedObjects[0];
                        if ([codeObj isKindOfClass:[AVMetadataMachineReadableCodeObject class]]) {
-                           self.labelQRName.text = [((AVMetadataMachineReadableCodeObject *)codeObj) stringValue];
+                           
+                           NSString *QRCode = [((AVMetadataMachineReadableCodeObject *)codeObj) stringValue];
+                           
+                           if (QRCode.length > 0 && !self.isScanned) {
+                               self.isScanned = YES;
+                               self.labelQRName.text = QRCode;
+                               [self sendQRCode:QRCode];
+                           }
                        }
                    }
                    
@@ -66,6 +85,64 @@
                }];
     
     [self.detector startCameraCapture];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [SVProgressHUD dismiss];
+}
+
+- (void)sendQRCode:(NSString *)QRCode
+{
+    BCTopicClient *client = [[BCTopicClient alloc] init];
+    
+    switch (self.status) {
+        case StatusQRCodeLogin:
+        {
+            [SVProgressHUD showWithStatus:@"Voting..."];
+            [client loginWithQRCode:QRCode block:^(NSArray *objects, NSError *error) {
+                if (objects && !error) {
+                    [NSDEF setObject:objects forKey:kUserLoggedIn];
+                    
+                    [client voteWithTopicID:self.topicId QRCode:QRCode block:^(id object, NSError *error) {
+                        if (object && !error) {
+                            [SVProgressHUD showSuccessWithStatus:@"Vote success"];
+                        }
+                        else {
+                            
+                        }
+                    }];
+                    
+                }
+                else {
+                    [SVProgressHUD showErrorWithStatus:@"QRCode does not exist"];
+                }
+            }];
+        }
+            break;
+            
+        case StatusQRCodeVote:
+        {
+            [client voteWithTopicID:self.topicId QRCode:QRCode block:^(id object, NSError *error) {
+                if (object && !error) {
+                    NSString *success = [object valueForKeyPath:@"status"];
+                    if ([success isEqualToString:@"success"]) {
+                        [SVProgressHUD showSuccessWithStatus:@"Vote success"];
+                    }
+                }
+                else {
+                    [SVProgressHUD showErrorWithStatus:@"You have voted this presentation!"];
+                }
+                
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

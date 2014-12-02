@@ -17,6 +17,7 @@
 @property (strong, nonatomic) BCSpeaker *speaker;
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) NSDate *updatedAt;
+@property (nonatomic, strong) NSNumber *vote_count;
 
 + (id)objectFromJson:(id)jsonObject;
 

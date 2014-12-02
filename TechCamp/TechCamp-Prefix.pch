@@ -15,6 +15,10 @@
     #import <Foundation/Foundation.h>
 #endif
 
-
 #import "YAConstants.h"
 #import "AppDelegate.h"
+
+typedef enum {
+    StatusQRCodeLogin               = 0,
+    StatusQRCodeVote                = 1,
+} StatusQRCode;

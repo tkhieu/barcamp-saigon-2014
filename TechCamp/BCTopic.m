@@ -49,10 +49,6 @@ static NSDateFormatter *dateFormater = nil;
     //    object.location = @"room 20";
     
     if (object.createdAtString.length >= 19) {
-        
-        NSLog(@"%@", [[self dateFormatter] dateFromString:
-                      [object.createdAtString substringToIndex:19]]);
-        
         object.createdAt = [[self dateFormatter] dateFromString:
                             [object.createdAtString substringToIndex:19]];
     }

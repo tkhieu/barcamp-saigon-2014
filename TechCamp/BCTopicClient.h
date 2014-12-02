@@ -10,6 +10,11 @@
 
 @interface BCTopicClient : YAClient
 
+- (void)voteWithTopicID:(NSString *)topicID QRCode:(NSString *)QRCode block:(YAIdResultBlock)block;
+- (void)loginWithQRCode:(NSString *)QRCode block:(YAArrayResultBlock)block;
 - (void)getTopicsWithBlock:(YAArrayResultBlock)block;
+- (void)getNotificationsWithBlock:(YAArrayResultBlock)block;
+- (NSArray *)notificationsFromJson:(id)json;
+- (void)registerPushWithDeviceToken:(NSString *)deviceToken block:(YAIdResultBlock)block;
 
 @end

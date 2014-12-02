@@ -10,8 +10,32 @@
 #import <TMCache/TMCache.h>
 #import "NSObject+Random.h"
 #import "BCTopic.h"
+#import "TCNotification.h"
 
 @implementation BCTopicClient
+
+- (void)voteWithTopicID:(NSString *)topicID QRCode:(NSString *)QRCode block:(YAIdResultBlock)block {
+    
+    if (!topicID) {
+        return;
+    }
+    
+    NSString *urlPath = [NSString stringWithFormat:@"/topics/vote"];
+    
+    NSDictionary *params = @{@"token": QRCode, @"topic_id": topicID, @"action" : @"add"};
+     
+    [self postFormWithPath:urlPath params:params block:^(id object, NSError *error) {
+        DLogObj(error);
+        DLogObj(object);
+        
+        if (error == nil && object != nil ) {
+            
+        }
+        
+        if (block) block(object, error);
+    }];
+    
+}
 
 - (id)parseFromDictionary:(NSDictionary *)dictionary class:(Class)class
 {
@@ -40,7 +64,9 @@
 }
 
 - (void)getTopicsWithBlock:(YAArrayResultBlock)block {
-    NSString *urlPath = [NSString stringWithFormat:@"/api/v1/topics"];
+    
+    NSString *token = [NSDEF objectForKey:kInstallationDeviceToken];
+    NSString *urlPath = [NSString stringWithFormat:@"/topics?token=%@", token];
     
     [self getJsonWithPath:urlPath params:nil block:^(id object, NSError *error) {
         
@@ -51,6 +77,71 @@
         }
         
         block(topics, error);
+    }];
+}
+
+- (void)getNotificationsWithBlock:(YAArrayResultBlock)block {
+    NSString *urlPath = [NSString stringWithFormat:@"/announcements"];
+    
+    [self getJsonWithPath:urlPath params:nil block:^(id object, NSError *error) {
+        
+        NSArray *notifications = nil;
+        if (object && !error) {
+            [[TMCache sharedCache] setObject:object forKey:urlPath];
+            notifications = [self notificationsFromJson:object];
+        }
+        
+        block(notifications, error);
+    }];
+}
+
+- (void)loginWithQRCode:(NSString *)QRCode block:(YAArrayResultBlock)block {
+
+    NSString *urlPath = [NSString stringWithFormat:@"/qrcode"];
+    NSDictionary *params = @{@"token": QRCode, @"dtype": @"ios"};
+    [self postJsonWithPath:urlPath params:params block:^(id object, NSError *error) {
+        
+        if (error == nil && object != nil ) {
+            
+        }
+        
+        if (block) block(object, error);
+    }];
+}
+
+- (NSArray *)notificationsFromJson:(id)json {
+    
+    NSMutableArray *notifications = [NSMutableArray array];
+    for (NSDictionary *notificationJson in json) {
+        TCNotification *notification = [TCNotification objectFromJson:notificationJson];
+        
+        [notifications addObject:notification];
+    }
+    
+    
+    [notifications sortUsingComparator:^NSComparisonResult(TCNotification *obj1, TCNotification *obj2) {
+        return [obj2.createdAt compare:obj1.createdAt];
+    }];
+    
+    return notifications;
+}
+
+- (void)registerPushWithDeviceToken:(NSString *)deviceToken block:(YAIdResultBlock)block {
+    if (!deviceToken) {
+        return;
+    }
+    
+    NSString *urlPath = [NSString stringWithFormat:@"/devices"];
+    
+    NSDictionary *params = @{@"token": deviceToken, @"dtype": @"ios"};
+    
+    [self postFormWithPath:urlPath params:params block:^(id object, NSError *error) {
+        
+        if (error == nil && object != nil ) {
+            
+        }
+        
+        if (block) block(object, error);
     }];
 }
 

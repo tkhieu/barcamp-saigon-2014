@@ -7,8 +7,10 @@
 //
 
 #import "TCTalkDetailViewController.h"
+#import "TCQRCodeViewController.h"
 #import "UIImage+ColorTransformation.h"
 #import "BCTopic.h"
+#import "BCTopicClient.h"
 #import <TSMessages/TSMessage.h>
 
 @interface TCTalkDetailViewController ()
@@ -57,6 +59,7 @@
     UIButton *voteButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
 
     [voteButton addTarget:self action:@selector(voteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
 //    if (_talk.voted) {
 //        [voteButton setTitle:@"Voted" forState:UIControlStateNormal];
 //        voteButton.enabled = NO;
@@ -107,27 +110,22 @@
     NSString *htmlString = [NSString stringWithFormat:
                             @"<h2 class='title' style='font-family:HelveticaNeue-CondensedBold;'><font color='#FF3B30'>%@</font></h2>\
                             <p class='name'><font color='gray'><b>%@</b></font></p>\
-                            <p class='name'><font color='gray' style='font-size:0.8em;line-height:0.8em;'>%d votes, %d favorites</font></p>\
+                            <p class='name'><font color='gray' style='font-size:0.8em;line-height:0.8em;'>%@ votes</font></p>\
                             ",
-                            talk.title, talk.speaker.name, 0, 0];
+                            talk.title, talk.speaker.name, talk.vote_count];
     
     
-//    if (talk.time) {
-//        htmlString = [htmlString stringByAppendingFormat:
-//                      @"<p class='name'><font color='gray' style='font-size:0.8em;line-height:0.8em;'><b>Time: </b>%@</font></p>", talk.time];
-//    }
-//
-//    if (talk.location) {
-//        htmlString = [htmlString stringByAppendingFormat:
-//                      @"<p class='name'><font color='gray' style='font-size:0.8em;line-height:0.8em;'><b>Location: </b>%@</font></p>", talk.location];
-//    }
+    if (talk) {
+        htmlString = [htmlString stringByAppendingFormat:
+                      @"<p class='name'><font color='gray' style='font-size:0.8em;line-height:0.8em;'><b>Time: </b>%@</font></p>", talk.duration];
+    }
     
     NSString *descriptionString = [NSString stringWithFormat:
                             @"<hr style = 'background-color:#FF3B30; border-width:0; color:#FF3B30; height:1px; lineheight:0;'/>\
                             <p class='desciption'><font color='#181818' style='line-height:2em;'>%@</font></p>\
                             <h3>Speaker</h3>\
                             <p><font color='#181818' style='line-height:2em;'>%@</font></p>",
-                            talk.topicDescription, talk.speaker.description];
+                            talk.topicDescription, talk.speaker.speakerDescription];
         
     htmlString = [NSString stringWithFormat:@"<html><body style='font-size:16px;font-family:HelveticaNeue;'>%@%@<p>&nbsp;</p></body></html>", htmlString, descriptionString];
     
@@ -137,22 +135,38 @@
 
 
 - (void)voteButtonPressed:(id)sender {
-    self.voteButton.enabled = NO;
     
-//    [[TCClient defaultClient] voteWithTopicID:_talk.talkID block:^(id object, NSError *error) {
-//        
-//        
-//        if (object && !error) {
-//            if ([[object objectForKey:@"status"] isEqualToString:@"Success"]) {
-//                [self showMessage:@"Voted!" type:TSMessageNotificationTypeError];
-//            } else {
-//                [self showMessage:@"Error!" type:TSMessageNotificationTypeError];
-//            }
-//        } else {
-//            [self showMessage:@"Error!" type:TSMessageNotificationTypeError];
-//        }
-//
-//    }];
+    if ([NSDEF objectForKey:kUserLoggedIn]) {
+        [SVProgressHUD show];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                TCQRCodeViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"TCQRCodeViewController"];
+                vc.status = StatusQRCodeVote;
+                vc.topicId = self.topic.topicId;
+                [self.navigationController pushViewController:vc animated:YES];
+            });
+        });
+    }
+    else {
+        UIAlertView *loginConfirm = [[UIAlertView alloc] initWithTitle:@"Cofirm" message:@"Login to vote?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        [loginConfirm show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [SVProgressHUD show];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                TCQRCodeViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"TCQRCodeViewController"];
+                vc.status = StatusQRCodeLogin;
+                vc.topicId = self.topic.topicId;
+                [self.navigationController pushViewController:vc animated:YES];
+            });
+        });
+    }
 }
 
 - (void)favButtonPressed:(id)sender {
@@ -190,7 +204,7 @@
 
 - (void)infoButtonPressed:(id)sender {
     [[[UIAlertView alloc] initWithTitle:@"Help" message:
-      @"Vote button is used to choose topics presented in BarCamp.\nWhile Favorite button is used to choose Best Presenters Award.\n\nKeep camp\nand\nBarCamp Saigon."
+      @"Vote button is used to choose topics presented in BarCamp.\n\nKeep camp\nand\nBarCamp Saigon."
                                delegate:nil cancelButtonTitle:@"OK!" otherButtonTitles:nil] show];
 }
 

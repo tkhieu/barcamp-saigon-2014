@@ -10,4 +10,7 @@
 
 @interface TCQRCodeViewController : UIViewController
 
+@property (nonatomic) NSInteger status;
+@property (nonatomic, strong) NSString  *topicId;
+
 @end

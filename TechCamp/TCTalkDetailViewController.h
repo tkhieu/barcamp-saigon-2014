@@ -10,7 +10,7 @@
 
 #import "BCTopic.h"
 
-@interface TCTalkDetailViewController : UIViewController
+@interface TCTalkDetailViewController : UIViewController<UIAlertViewDelegate>
 
 @property (nonatomic, strong) BCTopic *topic;
 

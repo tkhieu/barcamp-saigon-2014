@@ -11,11 +11,6 @@
 
 @interface BCSpeaker : JsonSerializable
 
-@property (strong, nonatomic) NSString *speakerId, *name, *speakerDescription, *profile_url, *email, *phone, *createdAtString, *updatedAtString;
-
-@property (nonatomic, strong) NSDate *createdAt;
-@property (nonatomic, strong) NSDate *updatedAt;
-
-+ (id)objectFromJson:(id)json;
+@property (strong, nonatomic) NSString *speakerId, *name, *speakerDescription, *profile_url;
 
 @end
