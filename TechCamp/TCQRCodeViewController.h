@@ -13,4 +13,6 @@
 @property (nonatomic) NSInteger status;
 @property (nonatomic, strong) NSString  *topicId;
 
+@property (nonatomic, strong) NSString *answerId;
+
 @end

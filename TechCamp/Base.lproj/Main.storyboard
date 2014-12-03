@@ -367,33 +367,6 @@
             <point key="canvasLocation" x="531" y="-60"/>
         </scene>
         <!--Challenge-->
-        <scene sceneID="Ajq-vq-xXc">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lHP-Bj-iNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="eoH-Up-IcG" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vlY-s5-exb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="NRq-7a-qAg">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NRq-7a-qAg" id="cKi-2Z-oBV">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="eoH-Up-IcG" id="3L6-jL-ZrC"/>
-                            <outlet property="delegate" destination="eoH-Up-IcG" id="DUb-V5-Y7G"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Challenge" id="drA-CT-9va"/>
-                </tableViewController>
-            </objects>
-            <point key="canvasLocation" x="1071" y="-716"/>
-        </scene>
-        <!--Challenge-->
         <scene sceneID="GF9-tM-jZA">
             <objects>
                 <navigationController id="HyS-CN-fpn" sceneMemberID="viewController">
@@ -403,12 +376,123 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="eoH-Up-IcG" kind="relationship" relationship="rootViewController" id="Fed-0T-SAA"/>
+                        <segue destination="LBQ-Ql-urO" kind="relationship" relationship="rootViewController" id="fpw-en-Qgz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l0J-dy-aR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="531" y="-724"/>
+        </scene>
+        <!--Challenge-->
+        <scene sceneID="4sb-IW-aaJ">
+            <objects>
+                <tableViewController storyboardIdentifier="BCListQuestionViewController" id="LBQ-Ql-urO" customClass="BCListQuestionViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="22" sectionFooterHeight="22" id="QNz-gC-ERI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BCQuestionCell" rowHeight="110" id="U34-jC-rEH" customClass="BCQuestionCell">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U34-jC-rEH" id="zJW-MW-dOq">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Content" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQm-cr-j57">
+                                            <rect key="frame" x="20" y="8" width="280" height="54"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" red="1" green="0.2062297491" blue="0.1550318769" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Speaker" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkW-T6-P8L">
+                                            <rect key="frame" x="20" y="72" width="130" height="21"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 answer" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xc5-Y0-ORd">
+                                            <rect key="frame" x="182" y="72" width="130" height="21"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="content" destination="DQm-cr-j57" id="sPb-Ev-De8"/>
+                                    <outlet property="numberOfAnswer" destination="Xc5-Y0-ORd" id="zgh-LV-gQ3"/>
+                                    <outlet property="speaker" destination="wkW-T6-P8L" id="KcX-qU-q4z"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LBQ-Ql-urO" id="CCm-62-UIJ"/>
+                            <outlet property="delegate" destination="LBQ-Ql-urO" id="vBl-ua-a3W"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Challenge" id="0rR-2y-nfx"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5x5-dU-Fjq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1059" y="-728"/>
+        </scene>
+        <!--Answer View Controller-->
+        <scene sceneID="CTF-ul-WCc">
+            <objects>
+                <viewController storyboardIdentifier="BCAnswerViewController" id="Yxj-ic-6Do" customClass="BCAnswerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Atd-n8-DAJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="NBL-Sl-TRw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xv7-y7-bpX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Awi-D6-fMD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Content" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwB-FZ-dwq">
+                                        <rect key="frame" x="20" y="8" width="280" height="80"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                        <color key="textColor" red="1" green="0.2062297491" blue="0.1550318769" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Speaker" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAm-g3-S85">
+                                        <rect key="frame" x="55" y="105" width="245" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Answer:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyb-xc-Fsf">
+                                        <rect key="frame" x="20" y="131" width="280" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="0.1995252832295365" green="0.55624877233778458" blue="0.90567203443877553" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person_icon" translatesAutoresizingMaskIntoConstraints="NO" id="UoY-tg-iLA">
+                                        <rect key="frame" x="20" y="105" width="20" height="20"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uN5-f9-qoT">
+                                        <rect key="frame" x="20" y="172" width="280" height="388"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="UoY-tg-iLA" id="diF-c9-6AW"/>
+                        <outlet property="labelAnswer" destination="Awi-D6-fMD" id="luI-Jj-AWt"/>
+                        <outlet property="labelContentQuestion" destination="NwB-FZ-dwq" id="52G-7M-9Yv"/>
+                        <outlet property="labelSpeaker" destination="WAm-g3-S85" id="5gS-GM-eyp"/>
+                        <outlet property="scrollView" destination="Awi-D6-fMD" id="0K3-pU-X0E"/>
+                        <outlet property="viewAnswer" destination="uN5-f9-qoT" id="0kj-7I-s9f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSN-sr-7wM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1454" y="-728"/>
         </scene>
         <!--Code View Controller-->
         <scene sceneID="eda-uA-xoo">

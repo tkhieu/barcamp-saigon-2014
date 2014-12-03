@@ -46,6 +46,11 @@
         case StatusQRCodeVote:
             self.title = @"Vote";
             break;
+        
+        case StatusQRCodeAnswer:
+            self.title = @"Answer";
+            break;
+            
         default:
             break;
     }
@@ -128,6 +133,7 @@
         
         case StatusQRCodeVote:
         {
+            [SVProgressHUD showWithStatus:@"Voting..."];
             [client voteWithTopicID:self.topicId QRCode:QRCode block:^(id object, NSError *error) {
                 if (object && !error) {
                     NSString *success = [object valueForKeyPath:@"status"];
@@ -137,6 +143,26 @@
                 }
                 else {
                     [SVProgressHUD showErrorWithStatus:@"You have voted this presentation!"];
+                }
+                
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+        }
+            break;
+            
+        case StatusQRCodeAnswer:
+        {
+            [SVProgressHUD showWithStatus:@"Submitting.."];
+            [client answer:self.topicId QRCode:QRCode answerId:self.answerId block:^(id object, NSError *error) {
+                if (object && !error) {
+                    NSString *success = [object valueForKeyPath:@"content"];
+                    if (success) {
+                        [SVProgressHUD showSuccessWithStatus:[object valueForKeyPath:@"content"]];
+                        [self.navigationController popViewControllerAnimated:NO];
+                    }
+                }
+                else {
+                    [SVProgressHUD showErrorWithStatus:@"Submit failed!"];
                 }
                 
                 [self.navigationController popViewControllerAnimated:YES];

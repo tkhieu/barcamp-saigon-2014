@@ -10,6 +10,7 @@
 #import <TMCache/TMCache.h>
 #import "NSObject+Random.h"
 #import "BCTopic.h"
+#import "BCQuestion.h"
 #import "TCNotification.h"
 
 @implementation BCTopicClient
@@ -24,6 +25,29 @@
     
     NSDictionary *params = @{@"token": QRCode, @"topic_id": topicID, @"action" : @"add"};
      
+    [self postFormWithPath:urlPath params:params block:^(id object, NSError *error) {
+        DLogObj(error);
+        DLogObj(object);
+        
+        if (error == nil && object != nil ) {
+            
+        }
+        
+        if (block) block(object, error);
+    }];
+    
+}
+
+- (void)answer:(NSString *)questionId QRCode:(NSString *)QRCode answerId:(NSString *)answerId block:(YAIdResultBlock)block {
+    
+    if (!questionId || !answerId || !QRCode) {
+        return;
+    }
+    
+    NSString *urlPath = [NSString stringWithFormat:@"/answer"];
+    
+    NSDictionary *params = @{@"token": QRCode, @"question_id": questionId, @"answer_id" : answerId};
+    
     [self postFormWithPath:urlPath params:params block:^(id object, NSError *error) {
         DLogObj(error);
         DLogObj(object);
@@ -126,6 +150,18 @@
     return notifications;
 }
 
+- (NSArray *)questionsFromJson:(id)json {
+    
+    NSMutableArray *questions = [NSMutableArray array];
+    for (NSDictionary *question in json) {
+        BCQuestion *modelQuestion = [self parseFromDictionary:question class:[BCQuestion class]];
+        
+        [questions addObject:modelQuestion];
+    }
+    
+    return questions;
+}
+
 - (void)registerPushWithDeviceToken:(NSString *)deviceToken block:(YAIdResultBlock)block {
     if (!deviceToken) {
         return;
@@ -155,17 +191,17 @@
 }
 
 - (void)getListQuestionWithBlock:(YAArrayResultBlock)block {
-    NSString *urlPath = [NSString stringWithFormat:@"/question"];
+    NSString *urlPath = [NSString stringWithFormat:@"/questions"];
     
     [self getJsonWithPath:urlPath params:nil block:^(id object, NSError *error) {
         
-        NSArray *notifications = nil;
+        NSArray *questions = nil;
         if (object && !error) {
             [[TMCache sharedCache] setObject:object forKey:urlPath];
-            notifications = [self notificationsFromJson:object];
+            questions = [self questionsFromJson:object];
         }
         
-        block(notifications, error);
+        block(questions, error);
     }];
 }
 

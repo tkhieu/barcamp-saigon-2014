@@ -18,8 +18,11 @@
 #import "YAConstants.h"
 #import "AppDelegate.h"
 #import "SVProgressHUD.h"
+#import "M13Checkbox.h"
+#import "RadioButton.h"
 
 typedef enum {
     StatusQRCodeLogin               = 0,
     StatusQRCodeVote                = 1,
+    StatusQRCodeAnswer              = 2,
 } StatusQRCode;
