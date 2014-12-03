@@ -14,29 +14,49 @@ static NSDateFormatter *dateFormater = nil;
 
 @implementation TCNotification
 
++ (id)parseFromDictionary:(NSDictionary *)dictionary class:(Class)class
+{
+    JsonSerializable *obj = nil;
+    if ([class isSubclassOfClass:[JsonSerializable class]]) {
+        NSError *error = nil;
+        obj = [[class alloc] initWithDictionary:dictionary error:&error];
+        
+        if (error) {
+            NSLog(@"Parse json failed: %@", error);
+        }
+    }
+    
+    return obj;
+}
+
++ (NSMutableDictionary *)customMapping
+{
+    return [@{@"created_at": @"createdAtString", @"updated_at" : @"updatedAtString", @"id": @"notificationId"} mutableCopy];
+}
 
 + (NSDateFormatter *)dateFormatter {
     if (!dateFormater) {
         dateFormater = [[NSDateFormatter alloc] init];
-        dateFormater.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+        dateFormater.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss";
     }
     
     return dateFormater;
 }
 
 + (id)objectFromJson:(id)jsonObject {
-    TCNotification *notification = [NSObject objectFromJson:jsonObject forClass:[self class] mappingDictionary:@{@"id": @"notificationID"}];
+    TCNotification *notification = [self parseFromDictionary:jsonObject class:[TCNotification class]];
     
     
     
-    if (notification.sentAt.length >= 19) {
+    if (notification.createdAtString.length >= 19) {
         notification.createdAt = [[self dateFormatter] dateFromString:
-                                  [notification.sentAt substringToIndex:19]];
+                                  [notification.createdAtString substringToIndex:19]];
     }
 
-    
-    
-    
+    if (notification.updatedAtString.length >= 19) {
+        notification.updatedAt = [[self dateFormatter] dateFromString:
+                                  [notification.updatedAtString substringToIndex:19]];
+    }
     
     return notification;
 }

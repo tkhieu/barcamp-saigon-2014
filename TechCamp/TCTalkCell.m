@@ -29,9 +29,6 @@
 //    UIColor *barTintColor = [[UINavigationBar appearance] barTintColor];
     UIColor *barTintColor = [UIColor grayColor];
     [_voteButton setImage:[[_voteButton imageForState:UIControlStateNormal] imageWithTint:barTintColor] forState:UIControlStateNormal];
-    
-    [_favoriteButton setImage:[[_favoriteButton imageForState:UIControlStateNormal] imageWithTint:barTintColor] forState:UIControlStateNormal];
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -47,14 +44,7 @@
     self.titleLabel.text = topic.title;
     self.speakerNameLabel.text = topic.speaker.name;
     
-//    [_voteButton setTitle:[NSString stringWithFormat:@"%@ votes", _topic.voteCount] forState:UIControlStateNormal];
-//    
-//    if ([_topic.favCount intValue] > 0) {
-//        _favoriteButton.hidden = NO;
-//        [_favoriteButton setTitle:[NSString stringWithFormat:@"%@ favorites", _talk.favCount] forState:UIControlStateNormal];
-//    } else {
-//        _favoriteButton.hidden = YES;
-//    }
+    [_voteButton setTitle:[NSString stringWithFormat:@"%@ votes", topic.vote_count] forState:UIControlStateNormal];
 }
 
 @end

@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel, *speakerNameLabel;
 
-@property (nonatomic, strong) IBOutlet UIButton *voteButton, *favoriteButton;
+@property (nonatomic, strong) IBOutlet UIButton *voteButton;
 - (void)updateViewWithTalk:(BCTopic *)talk;
 
 @end

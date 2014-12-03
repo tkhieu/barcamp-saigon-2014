@@ -16,7 +16,6 @@
 		1EE440DC1A286AEE007F00B8 /* BCSpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE440DB1A286AEE007F00B8 /* BCSpeaker.m */; };
 		1EE440DF1A286EE1007F00B8 /* BCTopicClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE440DE1A286EE1007F00B8 /* BCTopicClient.m */; };
 		1EE440E21A2877F7007F00B8 /* JsonSerializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE440E11A2877F7007F00B8 /* JsonSerializable.m */; };
-		1EE440E51A2880D7007F00B8 /* TCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE440E41A2880D7007F00B8 /* TCClient.m */; };
 		C7CEFBB2C3674E0685B45385 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE27D87AB4F4DDF8F98DD4F /* libPods.a */; };
 		FC1EDBC218D20BE100D3CA57 /* TCNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1EDBC118D20BE100D3CA57 /* TCNotification.m */; };
 		FC1EDBC518D2118C00D3CA57 /* TCNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1EDBC418D2118C00D3CA57 /* TCNotificationCell.m */; };
@@ -67,8 +66,6 @@
 		1EE440DE1A286EE1007F00B8 /* BCTopicClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCTopicClient.m; sourceTree = "<group>"; };
 		1EE440E01A2877F7007F00B8 /* JsonSerializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonSerializable.h; sourceTree = "<group>"; };
 		1EE440E11A2877F7007F00B8 /* JsonSerializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonSerializable.m; sourceTree = "<group>"; };
-		1EE440E31A2880D7007F00B8 /* TCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCClient.h; sourceTree = "<group>"; };
-		1EE440E41A2880D7007F00B8 /* TCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCClient.m; sourceTree = "<group>"; };
 		5FE27D87AB4F4DDF8F98DD4F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		711F5FC75B5EA530E19160AA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FC1EDBC018D20BE100D3CA57 /* TCNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCNotification.h; sourceTree = "<group>"; };
@@ -264,8 +261,6 @@
 		FC583D8718D185F6005F50E6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1EE440E31A2880D7007F00B8 /* TCClient.h */,
-				1EE440E41A2880D7007F00B8 /* TCClient.m */,
 				FC1EDBC018D20BE100D3CA57 /* TCNotification.h */,
 				FC1EDBC118D20BE100D3CA57 /* TCNotification.m */,
 				FC1EDBC618D2153600D3CA57 /* YAPushNotificationService.h */,
@@ -519,7 +514,6 @@
 				FC583D6D18D16B3A005F50E6 /* YAClient.m in Sources */,
 				1EE440E21A2877F7007F00B8 /* JsonSerializable.m in Sources */,
 				FCE5502518D1621D0093388D /* main.m in Sources */,
-				1EE440E51A2880D7007F00B8 /* TCClient.m in Sources */,
 				FCE5502918D1621D0093388D /* AppDelegate.m in Sources */,
 				FCAD925C18D198BC00FC43A8 /* TCTalkDetailViewController.m in Sources */,
 				FC583D7018D16B3A005F50E6 /* NSObject+JSON.m in Sources */,

@@ -145,4 +145,28 @@
     }];
 }
 
+- (id)cachedNotifications {
+    NSString *urlPath = [NSString stringWithFormat:@"/announcements"];
+    
+    id json = [[TMCache sharedCache] objectForKey:urlPath];
+    NSArray *notifications = [self notificationsFromJson:json];
+    
+    return notifications;
+}
+
+- (void)getListQuestionWithBlock:(YAArrayResultBlock)block {
+    NSString *urlPath = [NSString stringWithFormat:@"/question"];
+    
+    [self getJsonWithPath:urlPath params:nil block:^(id object, NSError *error) {
+        
+        NSArray *notifications = nil;
+        if (object && !error) {
+            [[TMCache sharedCache] setObject:object forKey:urlPath];
+            notifications = [self notificationsFromJson:object];
+        }
+        
+        block(notifications, error);
+    }];
+}
+
 @end

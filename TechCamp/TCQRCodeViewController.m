@@ -43,6 +43,9 @@
             self.title = @"Login";
             break;
             
+        case StatusQRCodeVote:
+            self.title = @"Vote";
+            break;
         default:
             break;
     }

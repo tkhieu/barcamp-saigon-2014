@@ -14,11 +14,11 @@ static NSString *const scheduleLink = @"https://docs.google.com/spreadsheet/ccc?
 
 //static NSString *const scheduleLink = @"https://docs.google.com/spreadsheet/pub?key=0ApUi9j7RVQB_dG9QbWdTd2d0d3lWb1JsUUk4SU9qZUE&output=html";
 
-static NSString *const webLink = @"http://techcamp.vn/";
+static NSString *const webLink = @"http://barcampsaigon.org";
 
 static NSString *const youtubeLink = @"http://www.youtube.com/playlist?list=PLUUDeNs_EpClPwK-PiTtsoN2Z-drkmoSV";
 
-static NSString *const facebookLink = @"https://www.facebook.com/techcampsaigon";
+static NSString *const facebookLink = @"https://www.facebook.com/BarCampSaigon";
 
 static NSString *const facebookAppLink = @"fb://profile/161773950698676";
 
@@ -125,7 +125,7 @@ static NSString *const contactEmail = @"barcamp@barcampsaigon.com";
             [self presentViewController:webViewController animated:YES completion:NULL];
         }
     } else if (indexPath.section == 2) {
-        [self sendMail:@"Feedback for Techcamp 2014" message:nil to:@[contactEmail]];
+        [self sendMail:@"Feedback for Barcamp Saigon" message:nil to:@[contactEmail]];
     }
 }
 

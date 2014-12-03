@@ -15,6 +15,7 @@ static NSDateFormatter *dateFormater = nil;
 
 + (NSDateFormatter *)dateFormatter {
     if (!dateFormater) {
+        [dateFormater setTimeZone:[NSTimeZone localTimeZone]];
         dateFormater = [[NSDateFormatter alloc] init];
         dateFormater.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss";
     }

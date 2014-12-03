@@ -9,7 +9,6 @@
 #import "YAPushNotificationService.h"
 #import "NSObject+JSON.h"
 
-#import "TCClient.h"
 #import "BCTopicClient.h"
 @implementation YAPushNotificationService
 

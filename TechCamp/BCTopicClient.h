@@ -17,4 +17,8 @@
 - (NSArray *)notificationsFromJson:(id)json;
 - (void)registerPushWithDeviceToken:(NSString *)deviceToken block:(YAIdResultBlock)block;
 
+- (id)cachedNotifications;
+
+- (void)getListQuestionWithBlock:(YAArrayResultBlock)block;
+
 @end

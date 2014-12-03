@@ -47,9 +47,21 @@ static TTTTimeIntervalFormatter *_timeFormatter;
 
 - (void)updateViewWithNotification:(TCNotification *)notification {
     self.notification = notification;
-    self.titleLabel.text = notification.subject;
-    self.descriptionLabel.text = notification.message;
+    self.titleLabel.text = notification.content;
+    self.descriptionLabel.text = notification.link;
     
-    self.createdAtLabel.text = [self.timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:notification.createdAt];
+    NSDateFormatter *df = [NSDateFormatter new];
+    [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
+    
+    //Create the date assuming the given string is in GMT
+    df.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+    NSDate *date = [df dateFromString:[notification.createdAtString substringToIndex:19]];
+    
+    //Create a date string in the local timezone
+    df.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:[NSTimeZone localTimeZone].secondsFromGMT];
+    NSString *localDateString = [df stringFromDate:date];
+    
+    
+    self.createdAtLabel.text = [self.timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:[df dateFromString:localDateString]];
 }
 @end

@@ -9,7 +9,7 @@
 #import "TCNotificationsViewController.h"
 #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 #import "TCNotificationCell.h"
-#import "TCClient.h"
+#import "BCTopicClient.h"
 
 @interface TCNotificationsViewController ()
 
@@ -51,7 +51,7 @@
 }
 
 - (void)refreshNotifications {
-    [[TCClient defaultClient] getNotificationsWithBlock:^(NSArray *objects, NSError *error) {
+    [[BCTopicClient defaultClient] getNotificationsWithBlock:^(NSArray *objects, NSError *error) {
         if (objects && !error) {
             [self loadCachedNotification];
             [self.refreshControl endRefreshing];
@@ -63,7 +63,7 @@
 
 
 - (void)loadCachedNotification {
-    self.notifications = [[TCClient defaultClient] cachedNotifications];
+    self.notifications = [[BCTopicClient defaultClient] cachedNotifications];
     [self.tableView reloadData];
 }
 
