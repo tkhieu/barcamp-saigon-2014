@@ -30,17 +30,19 @@
     
     // iOS 8 PN
     
-    #ifdef __IPHONE_8_0
+    if ([[UIDevice currentDevice].systemVersion integerValue] >= 8) {
         //Right, that is the point
         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIRemoteNotificationTypeBadge
                                                                                              |UIRemoteNotificationTypeSound
                                                                                              |UIRemoteNotificationTypeAlert) categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    #else
+    }
+    
+    else {
         //register to receive notifications
         UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:myTypes];
-    #endif
+    }
     
     return YES;
 }

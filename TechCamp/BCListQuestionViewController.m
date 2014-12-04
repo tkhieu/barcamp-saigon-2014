@@ -94,7 +94,6 @@
     detailVC.question = selectedQuestion;
     
     [self.navigationController pushViewController:detailVC animated:YES];
-    
 }
 
 @end

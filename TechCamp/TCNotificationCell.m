@@ -61,7 +61,12 @@ static TTTTimeIntervalFormatter *_timeFormatter;
     df.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:[NSTimeZone localTimeZone].secondsFromGMT];
     NSString *localDateString = [df stringFromDate:date];
     
+    @try {
+        self.createdAtLabel.text = [self.timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:[df dateFromString:localDateString]];
+    }
+    @catch (NSException *exception) {
+        
+    }
     
-    self.createdAtLabel.text = [self.timeFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:[df dateFromString:localDateString]];
 }
 @end

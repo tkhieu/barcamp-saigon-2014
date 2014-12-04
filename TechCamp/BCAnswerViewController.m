@@ -43,15 +43,15 @@
     self.labelSpeaker.text = self.question.speaker.name;
     
     CGRect frame = self.labelSpeaker.frame;
-    frame.origin.y = self.labelContentQuestion.frame.origin.y + self.labelContentQuestion.frame.size.height + 5;
+    frame.origin.y = self.labelContentQuestion.frame.origin.y + self.labelContentQuestion.frame.size.height + 10;
     self.labelSpeaker.frame = frame;
     
     frame = self.imageView.frame;
-    frame.origin.y = self.labelContentQuestion.frame.origin.y + self.labelContentQuestion.frame.size.height + 6;
+    frame.origin.y = self.labelContentQuestion.frame.origin.y + self.labelContentQuestion.frame.size.height + 11;
     self.imageView.frame = frame;
     
     frame = self.labelAnswer.frame;
-    frame.origin.y = self.labelContentQuestion.frame.origin.y + self.labelContentQuestion.frame.size.height + 20;
+    frame.origin.y = self.imageView.frame.origin.y + self.imageView.frame.size.height + 20;
     self.labelAnswer.frame = frame;
     
     for (NSInteger i = 0; i < self.question.answers.count; i++) {
@@ -64,11 +64,11 @@
     
     UIView *lastView = [self.viewAnswer.subviews lastObject];
     frame = self.viewAnswer.frame;
-    frame.origin.y = self.labelAnswer.frame.origin.y + 21 + 2;
+    frame.origin.y = self.labelAnswer.frame.origin.y + self.labelAnswer.frame.size.height + 20;
     frame.size.height = lastView.frame.origin.y + lastView.frame.size.height + 20;
     self.viewAnswer.frame = frame;
     
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 50, frame.origin.y + frame.size.height + 44, 100, 44)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 50, frame.origin.y + frame.size.height + 10, 100, 44)];
     button.backgroundColor = self.labelContentQuestion.textColor;
     [button setTitle:@"Submit" forState:UIControlStateNormal];
     button.layer.cornerRadius = 5;

@@ -13,7 +13,7 @@
 
 @property (strong, nonatomic) BCQuestion *question;
 
-@property (weak, nonatomic) IBOutlet UIScrollView *labelAnswer;
+@property (weak, nonatomic) IBOutlet UILabel *labelAnswer;
 @property (weak, nonatomic) IBOutlet UILabel *labelContentQuestion;
 @property (weak, nonatomic) IBOutlet UILabel *labelSpeaker;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
