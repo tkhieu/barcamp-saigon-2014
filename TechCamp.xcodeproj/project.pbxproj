@@ -12,7 +12,6 @@
 		1E5CACBF1A136B05001BE9E3 /* SMKDetectionCamera+BufferHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5CACB81A136B05001BE9E3 /* SMKDetectionCamera+BufferHandler.m */; };
 		1E5CACC01A136B05001BE9E3 /* SMKDetectionCamera+MetadataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5CACBA1A136B05001BE9E3 /* SMKDetectionCamera+MetadataHandler.m */; };
 		1E5CACC11A136B05001BE9E3 /* SMKDetectionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5CACBC1A136B05001BE9E3 /* SMKDetectionCamera.m */; };
-		1E8FF6671A2EEAEA0016B6A3 /* M13Checkbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8FF6661A2EEAEA0016B6A3 /* M13Checkbox.m */; };
 		1E8FF66B1A2EEB080016B6A3 /* RadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8FF66A1A2EEB080016B6A3 /* RadioButton.m */; };
 		1E8FF66E1A2EEE1B0016B6A3 /* BCQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8FF66D1A2EEE1B0016B6A3 /* BCQuestionCell.m */; };
 		1E8FF6711A2EF5F70016B6A3 /* BCAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8FF6701A2EF5F70016B6A3 /* BCAnswerViewController.m */; };
@@ -20,6 +19,7 @@
 		1E8FF6771A2F1B270016B6A3 /* RadioButton-Unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8FF6731A2F1B270016B6A3 /* RadioButton-Unselected.png */; };
 		1E8FF6781A2F1B270016B6A3 /* RadioButtonLarge-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8FF6741A2F1B270016B6A3 /* RadioButtonLarge-Selected.png */; };
 		1E8FF6791A2F1B270016B6A3 /* RadioButtonLarge-Unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8FF6751A2F1B270016B6A3 /* RadioButtonLarge-Unselected.png */; };
+		1EACFCEF1A30164E00EC30D3 /* UIViewController+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EACFCEE1A30164E00EC30D3 /* UIViewController+Custom.m */; };
 		1EAD5D601A2EBFDB0010A7F0 /* BCListQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD5D5F1A2EBFDB0010A7F0 /* BCListQuestionViewController.m */; };
 		1EAD5D681A2ECD4B0010A7F0 /* BCQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD5D671A2ECD4B0010A7F0 /* BCQuestion.m */; };
 		1EAD5D6B1A2ECD9A0010A7F0 /* BCAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD5D6A1A2ECD9A0010A7F0 /* BCAnswer.m */; };
@@ -69,8 +69,6 @@
 		1E5CACBB1A136B05001BE9E3 /* SMKDetectionCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMKDetectionCamera.h; sourceTree = "<group>"; };
 		1E5CACBC1A136B05001BE9E3 /* SMKDetectionCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKDetectionCamera.m; sourceTree = "<group>"; };
 		1E5CACBD1A136B05001BE9E3 /* SMKDetectionCamera_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMKDetectionCamera_private.h; sourceTree = "<group>"; };
-		1E8FF6651A2EEAEA0016B6A3 /* M13Checkbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13Checkbox.h; sourceTree = "<group>"; };
-		1E8FF6661A2EEAEA0016B6A3 /* M13Checkbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13Checkbox.m; sourceTree = "<group>"; };
 		1E8FF6691A2EEB080016B6A3 /* RadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioButton.h; sourceTree = "<group>"; };
 		1E8FF66A1A2EEB080016B6A3 /* RadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadioButton.m; sourceTree = "<group>"; };
 		1E8FF66C1A2EEE1B0016B6A3 /* BCQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCQuestionCell.h; sourceTree = "<group>"; };
@@ -81,6 +79,8 @@
 		1E8FF6731A2F1B270016B6A3 /* RadioButton-Unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButton-Unselected.png"; sourceTree = "<group>"; };
 		1E8FF6741A2F1B270016B6A3 /* RadioButtonLarge-Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButtonLarge-Selected.png"; sourceTree = "<group>"; };
 		1E8FF6751A2F1B270016B6A3 /* RadioButtonLarge-Unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButtonLarge-Unselected.png"; sourceTree = "<group>"; };
+		1EACFCED1A30164E00EC30D3 /* UIViewController+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Custom.h"; sourceTree = "<group>"; };
+		1EACFCEE1A30164E00EC30D3 /* UIViewController+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Custom.m"; sourceTree = "<group>"; };
 		1EAD5D5E1A2EBFDB0010A7F0 /* BCListQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCListQuestionViewController.h; sourceTree = "<group>"; };
 		1EAD5D5F1A2EBFDB0010A7F0 /* BCListQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCListQuestionViewController.m; sourceTree = "<group>"; };
 		1EAD5D661A2ECD4B0010A7F0 /* BCQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCQuestion.h; sourceTree = "<group>"; };
@@ -173,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				1E8FF6681A2EEB080016B6A3 /* RadioButton */,
-				1E8FF6641A2EEAEA0016B6A3 /* CheckBox */,
 				1E5CACB31A136B05001BE9E3 /* Smerk */,
 			);
 			path = Helpers;
@@ -201,15 +200,6 @@
 				1E5CACBA1A136B05001BE9E3 /* SMKDetectionCamera+MetadataHandler.m */,
 			);
 			path = "Detection Handlers";
-			sourceTree = "<group>";
-		};
-		1E8FF6641A2EEAEA0016B6A3 /* CheckBox */ = {
-			isa = PBXGroup;
-			children = (
-				1E8FF6651A2EEAEA0016B6A3 /* M13Checkbox.h */,
-				1E8FF6661A2EEAEA0016B6A3 /* M13Checkbox.m */,
-			);
-			path = CheckBox;
 			sourceTree = "<group>";
 		};
 		1E8FF6681A2EEB080016B6A3 /* RadioButton */ = {
@@ -362,6 +352,8 @@
 				FC1EDBC418D2118C00D3CA57 /* TCNotificationCell.m */,
 				1E8FF66C1A2EEE1B0016B6A3 /* BCQuestionCell.h */,
 				1E8FF66D1A2EEE1B0016B6A3 /* BCQuestionCell.m */,
+				1EACFCED1A30164E00EC30D3 /* UIViewController+Custom.h */,
+				1EACFCEE1A30164E00EC30D3 /* UIViewController+Custom.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -558,7 +550,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E8FF6671A2EEAEA0016B6A3 /* M13Checkbox.m in Sources */,
 				1EAD5D681A2ECD4B0010A7F0 /* BCQuestion.m in Sources */,
 				1E8FF66B1A2EEB080016B6A3 /* RadioButton.m in Sources */,
 				1EE440D91A286A50007F00B8 /* BCTopic.m in Sources */,
@@ -578,6 +569,7 @@
 				1E5CACBE1A136B05001BE9E3 /* SMKDetectionCamera+BlockDelegate.m in Sources */,
 				FC583D6F18D16B3A005F50E6 /* YAUser.m in Sources */,
 				1E5CACC01A136B05001BE9E3 /* SMKDetectionCamera+MetadataHandler.m in Sources */,
+				1EACFCEF1A30164E00EC30D3 /* UIViewController+Custom.m in Sources */,
 				FCC0259D18D1C92A00F332E3 /* NSObject+Block.m in Sources */,
 				1E5CACB11A136A3B001BE9E3 /* TCQRCodeViewController.m in Sources */,
 				FC583D6E18D16B3A005F50E6 /* YAObject.m in Sources */,

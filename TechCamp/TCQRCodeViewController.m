@@ -78,6 +78,7 @@
                            if (QRCode.length > 0 && !self.isScanned) {
                                self.isScanned = YES;
                                [self sendQRCode:QRCode];
+                               
                                return;
                            }
                        }
@@ -120,6 +121,8 @@
                             [SVProgressHUD showErrorWithStatus:@"You have voted this presentation!"];
                         }
                         
+                        [self.detector stopAllDetection];
+                        
                         [self.navigationController popViewControllerAnimated:YES];
                     }];
                 }
@@ -145,6 +148,8 @@
                     [SVProgressHUD showErrorWithStatus:@"You have voted this presentation!"];
                 }
                 
+                [self.detector stopAllDetection];
+                
                 [self.navigationController popViewControllerAnimated:YES];
             }];
         }
@@ -158,6 +163,7 @@
                     NSString *success = [object valueForKeyPath:@"content"];
                     if (success) {
                         [SVProgressHUD showSuccessWithStatus:[object valueForKeyPath:@"content"]];
+                        [self.detector stopAllDetection];
                         [self.navigationController popViewControllerAnimated:NO];
                     }
                 }

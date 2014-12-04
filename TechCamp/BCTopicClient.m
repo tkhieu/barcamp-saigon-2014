@@ -44,7 +44,7 @@
         return;
     }
     
-    NSString *urlPath = [NSString stringWithFormat:@"/answer"];
+    NSString *urlPath = [NSString stringWithFormat:@"/questions/answer"];
     
     NSDictionary *params = @{@"token": QRCode, @"question_id": questionId, @"answer_id" : answerId};
     

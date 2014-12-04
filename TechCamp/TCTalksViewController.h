@@ -11,5 +11,7 @@
 @interface TCTalksViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *talks;
+@property (nonatomic, strong) NSMutableArray *favourites;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

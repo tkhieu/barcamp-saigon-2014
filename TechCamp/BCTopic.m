@@ -63,4 +63,40 @@ static NSDateFormatter *dateFormater = nil;
     return object;
 }
 
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:_topicId forKey:@"topicId"];
+    [coder encodeObject:_title forKey:@"title"];
+    [coder encodeObject:_topicDescription forKey:@"topicDescription"];
+    [coder encodeObject:_slide_url forKey:@"slide_url"];
+    [coder encodeObject:_duration forKey:@"duration"];
+    [coder encodeObject:_language forKey:@"language"];
+    [coder encodeObject:_category forKey:@"category"];
+    [coder encodeObject:_createdAtString forKey:@"createdAtString"];
+    [coder encodeObject:_createdAtString forKey:@"updatedAtString"];
+    [coder encodeObject:_speaker forKey:@"speaker"];
+    [coder encodeObject:_createdAt forKey:@"createdAt"];
+    [coder encodeObject:_updatedAt forKey:@"updatedAt"];
+    [coder encodeObject:_vote_count forKey:@"vote_count"];
+}
+- (id)initWithCoder:(NSCoder *)coder {
+    if((self = [super init])) {
+        self.topicId = [coder decodeObjectForKey:@"topicId"];
+        self.title = [coder decodeObjectForKey:@"title"];
+        self.topicDescription = [coder decodeObjectForKey:@"topicDescription"];
+        self.slide_url = [coder decodeObjectForKey:@"slide_url"];
+        self.duration = [coder decodeObjectForKey:@"duration"];
+        self.language = [coder decodeObjectForKey:@"language"];
+        self.category = [coder decodeObjectForKey:@"category"];
+        self.createdAtString = [coder decodeObjectForKey:@"createdAtString"];
+        self.updatedAtString = [coder decodeObjectForKey:@"updatedAtString"];
+        self.speaker = [coder decodeObjectForKey:@"speaker"];
+        self.createdAt = [coder decodeObjectForKey:@"createdAt"];
+        self.updatedAt = [coder decodeObjectForKey:@"updatedAt"];
+        self.vote_count = [coder decodeObjectForKey:@"vote_count"];
+    }
+    
+    return self;
+}
+
 @end

@@ -15,10 +15,12 @@
     #import <Foundation/Foundation.h>
 #endif
 
+#define FAVOURITE_KEY @"favourite_key"
+
 #import "YAConstants.h"
 #import "AppDelegate.h"
 #import "SVProgressHUD.h"
-#import "M13Checkbox.h"
+#import "UIViewController+Custom.h"
 #import "RadioButton.h"
 
 typedef enum {

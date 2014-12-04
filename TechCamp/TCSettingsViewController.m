@@ -10,7 +10,7 @@
 #import <SVWebViewController/SVWebViewController.h>
 
 
-static NSString *const scheduleLink = @"https://docs.google.com/spreadsheet/ccc?key=0ApUi9j7RVQB_dDViUTR2dF9QQkFEaFgzM3VoWlU0T3c#gid=0";
+static NSString *const scheduleLink = @"https://docs.google.com/spreadsheet/pub?key=0AuhgSjnIGa2VdHlBM2JjakNPQmJaQWlwWmp2OWFfQ3c&single=true&gid=0&output=html";
 
 //static NSString *const scheduleLink = @"https://docs.google.com/spreadsheet/pub?key=0ApUi9j7RVQB_dG9QbWdTd2d0d3lWb1JsUUk4SU9qZUE&output=html";
 

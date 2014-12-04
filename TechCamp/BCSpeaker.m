@@ -27,4 +27,22 @@ static NSDateFormatter *dateFormater = nil;
     return [@{@"description": @"speakerDescription", @"id": @"speakerId"} mutableCopy];
 }
 
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:_speakerId forKey:@"speakerId"];
+    [coder encodeObject:_name forKey:@"name"];
+    [coder encodeObject:_speakerDescription forKey:@"speakerDescription"];
+    [coder encodeObject:_profile_url forKey:@"profile_url"];
+}
+- (id)initWithCoder:(NSCoder *)coder {
+    if((self = [super init])) {
+        self.speakerId = [coder decodeObjectForKey:@"speakerId"];
+        self.name = [coder decodeObjectForKey:@"name"];
+        self.speakerDescription = [coder decodeObjectForKey:@"speakerDescription"];
+        self.profile_url = [coder decodeObjectForKey:@"profile_url"];
+    }
+    
+    return self;
+}
+
 @end

@@ -98,6 +98,7 @@
                         <barButtonItem key="backBarButtonItem" title="Topics" id="3wZ-Qk-omh"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="UX3-Sv-RSo" id="rvm-ym-PLw"/>
                         <outlet property="searchDisplayController" destination="bH0-lv-Iyn" id="f3Q-ms-UHS"/>
                         <segue destination="PM1-Fz-9Fk" kind="push" id="4Ec-ct-8PW"/>
                     </connections>

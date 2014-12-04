@@ -13,6 +13,7 @@
 #import "BCTopicClient.h"
 #import "BCTopic.h"
 #import "TCTalkDetailViewController.h"
+#import "UIImage+ColorTransformation.h"
 
 #import "NSObject+Random.h"
 typedef enum {
@@ -26,6 +27,7 @@ typedef enum {
 @property (nonatomic, strong) NSMutableArray *searchResults;
 
 @property (nonatomic, assign) SortType sortType;
+@property (nonatomic) BOOL isFavourite;
 
 @end
 
@@ -71,12 +73,60 @@ typedef enum {
         self.tableView.backgroundView = tempImageView;
 
     }
-    
-    
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sort" style:UIBarButtonItemStyleBordered target:self action:@selector(showSortOption)];
+    
+    UIColor *tintColor = self.navigationController.navigationBar.tintColor;
+    UIButton *favButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    [favButton addTarget:self action:@selector(favButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [favButton setImage:[[UIImage imageNamed:@"saved_talks_icon_active"] imageWithTint:tintColor] forState:UIControlStateNormal];
+    [favButton setTitleColor:tintColor forState:UIControlStateNormal];
+    
+    UIBarButtonItem *favButtonItem = [[UIBarButtonItem alloc] initWithCustomView:favButton];
+    
+    self.navigationItem.leftBarButtonItem = favButtonItem;
 }
 
+- (void)favButtonPressed:(UIButton *)sender
+{
+    if (sender.alpha == 1) {
+        sender.alpha = 0.5;
+        self.isFavourite = YES;
+        self.favourites = [@[] mutableCopy];
+        NSDictionary *favouriteTopics = [self getFavourite];
+        NSArray *keys = [favouriteTopics allKeys];
+        for (NSString *key in keys) {
+            [self.favourites addObject:[favouriteTopics valueForKeyPath:key]];
+        }
+    }
+    else {
+        self.isFavourite = NO;
+        sender.alpha = 1;
+    }
+
+    [self hideSearchBar:self.isFavourite];
+    
+    [self.tableView reloadData];
+}
+
+- (void)hideSearchBar:(BOOL)isHide
+{
+    NSInteger origin = 44;
+    if (isHide) {
+        origin = -44;
+    }
+    
+    CGRect __block frameSearchBar = self.searchBar.frame;
+    CGRect __block frameTableView = self.tableView.frame;
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        frameSearchBar.origin.y += origin;
+        frameTableView.origin.y += origin;
+        self.tableView.frame = frameTableView;
+        self.searchBar.frame = frameSearchBar;
+    }];
+}
 
 - (void)refreshTalks {
     [[BCTopicClient defaultClient] getTopicsWithBlock:^(NSArray *objects, NSError *error) {
@@ -112,12 +162,18 @@ typedef enum {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return [_searchResults count];
-    }
     
-    return _talks.count;
+    if (self.isFavourite) {
+        return self.favourites.count;
+    }
+    else {
+        // Return the number of rows in the section.
+        if (tableView == self.searchDisplayController.searchResultsTableView) {
+            return [_searchResults count];
+        }
+    
+        return _talks.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -128,10 +184,15 @@ typedef enum {
     // Configure the cell...
     BCTopic *topic = nil;
     
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        topic = [_searchResults objectAtIndex:indexPath.row];
-    } else {
-        topic = [_talks objectAtIndex:indexPath.row];
+    if (self.isFavourite) {
+        topic = [self.favourites objectAtIndex:indexPath.row];
+    }
+    else {
+        if (tableView == self.searchDisplayController.searchResultsTableView) {
+            topic = [_searchResults objectAtIndex:indexPath.row];
+        } else {
+            topic = [_talks objectAtIndex:indexPath.row];
+        }
     }
     
     [cell updateViewWithTalk:topic];
@@ -150,19 +211,23 @@ typedef enum {
     
     
     BCTopic *selectedTalk = nil;
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        selectedTalk = [_searchResults objectAtIndex:indexPath.row];
-        
-    } else {
-        selectedTalk = [_talks objectAtIndex:indexPath.row];
-    }
     
+    if (self.isFavourite) {
+        selectedTalk = [self.favourites objectAtIndex:indexPath.row];
+    }
+    else {
+        if (tableView == self.searchDisplayController.searchResultsTableView) {
+            selectedTalk = [_searchResults objectAtIndex:indexPath.row];
+            
+        } else {
+            selectedTalk = [_talks objectAtIndex:indexPath.row];
+        }
+    }
     
     TCTalkDetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TCTalkDetailViewController"];
     detailVC.topic = selectedTalk;
 
     [self.navigationController pushViewController:detailVC animated:YES];
-    
 }
 
 

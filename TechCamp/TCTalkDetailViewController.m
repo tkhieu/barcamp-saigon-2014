@@ -77,13 +77,6 @@
     UIButton *favButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
     [favButton addTarget:self action:@selector(favButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
-//    if (_talk.voted) {
-//        [favButton setTitle:@"Favorited" forState:UIControlStateNormal];
-//        favButton.enabled = NO;
-//    } else {
-//        [favButton setTitle:@"Favorite" forState:UIControlStateNormal];
-//    }
-    
     [favButton setImage:[[UIImage imageNamed:@"saved_talks_icon_active"] imageWithTint:tintColor] forState:UIControlStateNormal];
     [favButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 10)];
     [favButton setTitleColor:tintColor forState:UIControlStateNormal];
@@ -101,6 +94,17 @@
     
     self.voteButton = voteButton;
     self.favoriteButton = favButton;
+    
+    NSMutableDictionary *favourites = [self getFavourite];
+    if (favourites) {
+        id topic = [favourites valueForKeyPath:self.topic.topicId];
+        if (topic) {
+            self.favoriteButton.enabled = NO;
+        }
+        else {
+            self.favoriteButton.enabled = YES;
+        }
+    }
     
     self.title = _topic.speaker.name;
 }
@@ -177,28 +181,13 @@
     NSInteger month = [components month];
     NSInteger year = [components year];
     
-    if (day != 23 || month != 3 || year != 2014) {
-        [[[UIAlertView alloc] initWithTitle:@"Favorite" message:@"So excited! This feature will be available on event day." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-        return;
-    }
+//    if (day != 14 || month != 12 || year != 2014) {
+//        [[[UIAlertView alloc] initWithTitle:@"Favorite" message:@"So excited! This feature will be available on event day." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+//        return;
+//    }
     
-    
+    [self setFavourite:self.topic];
     self.favoriteButton.enabled = NO;
-    
-//    [[TCClient defaultClient] favoriteWithTopicID:_talk.talkID block:^(id object, NSError *error) {
-//        
-//        
-//        if (object && !error) {
-//            if ([[object objectForKey:@"status"] isEqualToString:@"Success"]) {
-//                [self showMessage:@"Favorited!" type:TSMessageNotificationTypeSuccess];
-//            } else {
-//                [self showMessage:@"Error!" type:TSMessageNotificationTypeError];
-//            }
-//        } else {
-//            [self showMessage:@"Error!" type:TSMessageNotificationTypeError];
-//        }
-//        
-//    }];
 }
 
 
