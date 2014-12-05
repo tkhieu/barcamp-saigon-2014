@@ -17,7 +17,7 @@ static NSString *const scheduleLink = @"https://docs.google.com/spreadsheet/pub?
 
 static NSString *const webLink = @"http://barcampsaigon.org";
 
-static NSString *const youtubeLink = @"http://www.youtube.com/playlist?list=PLUUDeNs_EpClPwK-PiTtsoN2Z-drkmoSV";
+static NSString *const youtubeLink = @"https://www.youtube.com/user/barcampsaigon";
 
 static NSString *const facebookLink = @"https://www.facebook.com/BarCampSaigon";
 
