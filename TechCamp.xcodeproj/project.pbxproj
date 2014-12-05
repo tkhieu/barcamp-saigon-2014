@@ -7,11 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E011EB51A316C9A0087FB05 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E011EB11A316C9A0087FB05 /* Default-568h@2x.png */; };
+		1E011EB61A316C9A0087FB05 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E011EB21A316C9A0087FB05 /* Default-667h@2x.png */; };
+		1E011EB71A316C9A0087FB05 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E011EB31A316C9A0087FB05 /* Default@2x.png */; };
+		1E011EB81A316C9A0087FB05 /* Default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E011EB41A316C9A0087FB05 /* Default@3x.png */; };
+		1E011EBE1A3172C80087FB05 /* Sponsor-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E011EBA1A3172C80087FB05 /* Sponsor-568h@2x.png */; };
+		1E011EBF1A3172C80087FB05 /* Sponsor-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E011EBB1A3172C80087FB05 /* Sponsor-667h@2x.png */; };
+		1E011EC01A3172C80087FB05 /* Sponsor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E011EBC1A3172C80087FB05 /* Sponsor@2x.png */; };
+		1E011EC11A3172C80087FB05 /* Sponsor@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E011EBD1A3172C80087FB05 /* Sponsor@3x.png */; };
 		1E5CACB11A136A3B001BE9E3 /* TCQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5CACB01A136A3B001BE9E3 /* TCQRCodeViewController.m */; };
 		1E5CACBE1A136B05001BE9E3 /* SMKDetectionCamera+BlockDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5CACB61A136B05001BE9E3 /* SMKDetectionCamera+BlockDelegate.m */; };
 		1E5CACBF1A136B05001BE9E3 /* SMKDetectionCamera+BufferHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5CACB81A136B05001BE9E3 /* SMKDetectionCamera+BufferHandler.m */; };
 		1E5CACC01A136B05001BE9E3 /* SMKDetectionCamera+MetadataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5CACBA1A136B05001BE9E3 /* SMKDetectionCamera+MetadataHandler.m */; };
 		1E5CACC11A136B05001BE9E3 /* SMKDetectionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5CACBC1A136B05001BE9E3 /* SMKDetectionCamera.m */; };
+		1E7209C31A3190BF00FA55CC /* TCSponsorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7209C21A3190BF00FA55CC /* TCSponsorViewController.m */; };
 		1E8FF66B1A2EEB080016B6A3 /* RadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8FF66A1A2EEB080016B6A3 /* RadioButton.m */; };
 		1E8FF66E1A2EEE1B0016B6A3 /* BCQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8FF66D1A2EEE1B0016B6A3 /* BCQuestionCell.m */; };
 		1E8FF6711A2EF5F70016B6A3 /* BCAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8FF6701A2EF5F70016B6A3 /* BCAnswerViewController.m */; };
@@ -19,6 +28,7 @@
 		1E8FF6771A2F1B270016B6A3 /* RadioButton-Unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8FF6731A2F1B270016B6A3 /* RadioButton-Unselected.png */; };
 		1E8FF6781A2F1B270016B6A3 /* RadioButtonLarge-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8FF6741A2F1B270016B6A3 /* RadioButtonLarge-Selected.png */; };
 		1E8FF6791A2F1B270016B6A3 /* RadioButtonLarge-Unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8FF6751A2F1B270016B6A3 /* RadioButtonLarge-Unselected.png */; };
+		1E904EC31A31487E00F94316 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E904EC21A31487E00F94316 /* Launch Screen.xib */; };
 		1EACFCEF1A30164E00EC30D3 /* UIViewController+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EACFCEE1A30164E00EC30D3 /* UIViewController+Custom.m */; };
 		1EAD5D601A2EBFDB0010A7F0 /* BCListQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD5D5F1A2EBFDB0010A7F0 /* BCListQuestionViewController.m */; };
 		1EAD5D681A2ECD4B0010A7F0 /* BCQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD5D671A2ECD4B0010A7F0 /* BCQuestion.m */; };
@@ -58,6 +68,14 @@
 
 /* Begin PBXFileReference section */
 		12C8A82AEE631D284533A310 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		1E011EB11A316C9A0087FB05 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1E011EB21A316C9A0087FB05 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
+		1E011EB31A316C9A0087FB05 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1E011EB41A316C9A0087FB05 /* Default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@3x.png"; sourceTree = "<group>"; };
+		1E011EBA1A3172C80087FB05 /* Sponsor-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sponsor-568h@2x.png"; sourceTree = "<group>"; };
+		1E011EBB1A3172C80087FB05 /* Sponsor-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sponsor-667h@2x.png"; sourceTree = "<group>"; };
+		1E011EBC1A3172C80087FB05 /* Sponsor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sponsor@2x.png"; sourceTree = "<group>"; };
+		1E011EBD1A3172C80087FB05 /* Sponsor@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sponsor@3x.png"; sourceTree = "<group>"; };
 		1E5CACAF1A136A3B001BE9E3 /* TCQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCQRCodeViewController.h; sourceTree = "<group>"; };
 		1E5CACB01A136A3B001BE9E3 /* TCQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCQRCodeViewController.m; sourceTree = "<group>"; };
 		1E5CACB51A136B05001BE9E3 /* SMKDetectionCamera+BlockDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SMKDetectionCamera+BlockDelegate.h"; sourceTree = "<group>"; };
@@ -69,6 +87,8 @@
 		1E5CACBB1A136B05001BE9E3 /* SMKDetectionCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMKDetectionCamera.h; sourceTree = "<group>"; };
 		1E5CACBC1A136B05001BE9E3 /* SMKDetectionCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKDetectionCamera.m; sourceTree = "<group>"; };
 		1E5CACBD1A136B05001BE9E3 /* SMKDetectionCamera_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMKDetectionCamera_private.h; sourceTree = "<group>"; };
+		1E7209C11A3190BF00FA55CC /* TCSponsorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCSponsorViewController.h; sourceTree = "<group>"; };
+		1E7209C21A3190BF00FA55CC /* TCSponsorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCSponsorViewController.m; sourceTree = "<group>"; };
 		1E8FF6691A2EEB080016B6A3 /* RadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioButton.h; sourceTree = "<group>"; };
 		1E8FF66A1A2EEB080016B6A3 /* RadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadioButton.m; sourceTree = "<group>"; };
 		1E8FF66C1A2EEE1B0016B6A3 /* BCQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCQuestionCell.h; sourceTree = "<group>"; };
@@ -79,6 +99,7 @@
 		1E8FF6731A2F1B270016B6A3 /* RadioButton-Unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButton-Unselected.png"; sourceTree = "<group>"; };
 		1E8FF6741A2F1B270016B6A3 /* RadioButtonLarge-Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButtonLarge-Selected.png"; sourceTree = "<group>"; };
 		1E8FF6751A2F1B270016B6A3 /* RadioButtonLarge-Unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButtonLarge-Unselected.png"; sourceTree = "<group>"; };
+		1E904EC21A31487E00F94316 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		1EACFCED1A30164E00EC30D3 /* UIViewController+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Custom.h"; sourceTree = "<group>"; };
 		1EACFCEE1A30164E00EC30D3 /* UIViewController+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Custom.m"; sourceTree = "<group>"; };
 		1EAD5D5E1A2EBFDB0010A7F0 /* BCListQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCListQuestionViewController.h; sourceTree = "<group>"; };
@@ -169,6 +190,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E011EB01A316C9A0087FB05 /* LaunchImage */ = {
+			isa = PBXGroup;
+			children = (
+				1E011EB11A316C9A0087FB05 /* Default-568h@2x.png */,
+				1E011EB21A316C9A0087FB05 /* Default-667h@2x.png */,
+				1E011EB31A316C9A0087FB05 /* Default@2x.png */,
+				1E011EB41A316C9A0087FB05 /* Default@3x.png */,
+			);
+			path = LaunchImage;
+			sourceTree = "<group>";
+		};
+		1E011EB91A3172C80087FB05 /* Sponsor */ = {
+			isa = PBXGroup;
+			children = (
+				1E011EBA1A3172C80087FB05 /* Sponsor-568h@2x.png */,
+				1E011EBB1A3172C80087FB05 /* Sponsor-667h@2x.png */,
+				1E011EBC1A3172C80087FB05 /* Sponsor@2x.png */,
+				1E011EBD1A3172C80087FB05 /* Sponsor@3x.png */,
+			);
+			path = Sponsor;
+			sourceTree = "<group>";
+		};
 		1E5CACB21A136B05001BE9E3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +368,7 @@
 		FCAD925818D196CF00FC43A8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1E904EC21A31487E00F94316 /* Launch Screen.xib */,
 				FCE5505018D165050093388D /* TCTalksViewController.h */,
 				FCE5505118D165050093388D /* TCTalksViewController.m */,
 				FCE5505318D1651D0093388D /* TCNotificationsViewController.h */,
@@ -339,6 +383,8 @@
 				1EAD5D5F1A2EBFDB0010A7F0 /* BCListQuestionViewController.m */,
 				1E8FF66F1A2EF5F70016B6A3 /* BCAnswerViewController.h */,
 				1E8FF6701A2EF5F70016B6A3 /* BCAnswerViewController.m */,
+				1E7209C11A3190BF00FA55CC /* TCSponsorViewController.h */,
+				1E7209C21A3190BF00FA55CC /* TCSponsorViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -409,6 +455,8 @@
 		FCE5501F18D1621D0093388D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1E011EB91A3172C80087FB05 /* Sponsor */,
+				1E011EB01A316C9A0087FB05 /* LaunchImage */,
 				FCE5502018D1621D0093388D /* TechCamp-Info.plist */,
 				FCE5502118D1621D0093388D /* InfoPlist.strings */,
 				FCE5502418D1621D0093388D /* main.m */,
@@ -498,15 +546,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E011EC11A3172C80087FB05 /* Sponsor@3x.png in Resources */,
 				1E8FF6761A2F1B270016B6A3 /* RadioButton-Selected.png in Resources */,
+				1E011EB61A316C9A0087FB05 /* Default-667h@2x.png in Resources */,
+				1E011EB51A316C9A0087FB05 /* Default-568h@2x.png in Resources */,
 				1E8FF6791A2F1B270016B6A3 /* RadioButtonLarge-Unselected.png in Resources */,
+				1E011EBE1A3172C80087FB05 /* Sponsor-568h@2x.png in Resources */,
+				1E011EB71A316C9A0087FB05 /* Default@2x.png in Resources */,
 				FC583D8218D18233005F50E6 /* gist.json in Resources */,
 				FCE5503418D1621D0093388D /* Images.xcassets in Resources */,
 				FCE5502318D1621D0093388D /* InfoPlist.strings in Resources */,
+				1E011EC01A3172C80087FB05 /* Sponsor@2x.png in Resources */,
 				1E8FF6781A2F1B270016B6A3 /* RadioButtonLarge-Selected.png in Resources */,
 				FCE5502C18D1621D0093388D /* Main.storyboard in Resources */,
 				FC583D8518D18565005F50E6 /* talks.json in Resources */,
+				1E011EBF1A3172C80087FB05 /* Sponsor-667h@2x.png in Resources */,
 				1E8FF6771A2F1B270016B6A3 /* RadioButton-Unselected.png in Resources */,
+				1E904EC31A31487E00F94316 /* Launch Screen.xib in Resources */,
+				1E011EB81A316C9A0087FB05 /* Default@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +619,7 @@
 				1E5CACBF1A136B05001BE9E3 /* SMKDetectionCamera+BufferHandler.m in Sources */,
 				FC583D7118D16B3A005F50E6 /* NSObject+JsonMapping.m in Sources */,
 				FCE5505818D165420093388D /* TCSettingsViewController.m in Sources */,
+				1E7209C31A3190BF00FA55CC /* TCSponsorViewController.m in Sources */,
 				1EE440DC1A286AEE007F00B8 /* BCSpeaker.m in Sources */,
 				1EE440DF1A286EE1007F00B8 /* BCTopicClient.m in Sources */,
 				FC583D5318D16762005F50E6 /* TCTalkCell.m in Sources */,

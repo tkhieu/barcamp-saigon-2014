@@ -51,6 +51,7 @@
     
     NSString *htmlString = [self htmlStringForTalk:_topic];
     
+    self.webView.dataDetectorTypes = UIDataDetectorTypeLink;
     [self.webView loadHTMLString:htmlString baseURL:nil];
     
     UIColor *tintColor = self.navigationController.navigationBar.tintColor;

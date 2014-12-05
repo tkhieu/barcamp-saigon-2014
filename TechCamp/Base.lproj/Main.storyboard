@@ -94,7 +94,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Barcamp Saigon" id="Zmi-zD-azN">
+                    <navigationItem key="navigationItem" title="Barcamp Saigon 2014" id="Zmi-zD-azN">
                         <barButtonItem key="backBarButtonItem" title="Topics" id="3wZ-Qk-omh"/>
                     </navigationItem>
                     <connections>
@@ -198,6 +198,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23I-jw-ari" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1065" y="627"/>
+        </scene>
+        <!--Sponsor-->
+        <scene sceneID="ZvN-d9-A6Y">
+            <objects>
+                <viewController storyboardIdentifier="TCSponsorViewController" title="Sponsor" id="9Vc-pg-rws" customClass="TCSponsorViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cBN-ai-sEr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="cWp-qe-goW">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sponsor" id="468-mN-ywX">
+                        <barButtonItem key="backBarButtonItem" title="More" id="B1d-aA-n5a"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="cWp-qe-goW" id="9BB-Xm-8mT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yzf-7p-3Js" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1466" y="1302"/>
         </scene>
         <!--Announcements-->
         <scene sceneID="z07-WH-lIb">
@@ -305,6 +331,26 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="vTG-XM-ckc" rowHeight="44" style="IBUITableViewCellStyleDefault" id="7uv-SQ-SZl">
+                                        <rect key="frame" x="0.0" y="292" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7uv-SQ-SZl" id="9tQ-Al-d45">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Barcamp Sponsor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vTG-XM-ckc">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="9Vc-pg-rws" kind="push" id="JT3-24-W0a"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>

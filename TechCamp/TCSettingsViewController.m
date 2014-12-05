@@ -8,6 +8,7 @@
 
 #import "TCSettingsViewController.h"
 #import <SVWebViewController/SVWebViewController.h>
+#import "TCSponsorViewController.h"
 
 
 static NSString *const scheduleLink = @"https://docs.google.com/spreadsheet/pub?key=0AuhgSjnIGa2VdHlBM2JjakNPQmJaQWlwWmp2OWFfQ3c&single=true&gid=0&output=html";
@@ -20,7 +21,7 @@ static NSString *const youtubeLink = @"http://www.youtube.com/playlist?list=PLUU
 
 static NSString *const facebookLink = @"https://www.facebook.com/BarCampSaigon";
 
-static NSString *const facebookAppLink = @"fb://profile/161773950698676";
+static NSString *const facebookAppLink = @"fb://profile/160693367753";
 
 
 
@@ -99,6 +100,9 @@ static NSString *const contactEmail = @"barcamp@barcampsaigon.com";
         
         NSString *link = nil;
         switch (indexPath.row) {
+            case 0:
+                link = webLink;
+                break;
             case 1:
                 link = youtubeLink;
                 break;
@@ -114,7 +118,7 @@ static NSString *const contactEmail = @"barcamp@barcampsaigon.com";
                 
             } break;
             default:
-                link = webLink;
+                
                 break;
         }
         
@@ -124,6 +128,7 @@ static NSString *const contactEmail = @"barcamp@barcampsaigon.com";
             webViewController.barsTintColor = [[UINavigationBar appearance] tintColor];
             [self presentViewController:webViewController animated:YES completion:NULL];
         }
+        
     } else if (indexPath.section == 2) {
         [self sendMail:@"Feedback for Barcamp Saigon" message:nil to:@[contactEmail]];
     }

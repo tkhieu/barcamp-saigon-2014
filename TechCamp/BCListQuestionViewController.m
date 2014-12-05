@@ -26,7 +26,7 @@
     if (IS_OS_7_OR_LATER) {
         [self setNeedsStatusBarAppearanceUpdate];
         
-        UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"techcamp_logo"]];
+        UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Barcamp_Challenge"]];
         [tempImageView setFrame:self.tableView.frame];
         [tempImageView setContentMode:UIViewContentModeScaleAspectFit];
         self.tableView.backgroundView = tempImageView;

@@ -12,8 +12,8 @@
 
 
 @property (nonatomic, strong) TCNotification *notification;
-@property (nonatomic, strong) IBOutlet UILabel *titleLabel, *descriptionLabel, *createdAtLabel;
-
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel, *createdAtLabel;
+@property (strong, nonatomic) UILabel *descriptionLabel;
 
 - (void)updateViewWithNotification:(TCNotification *)notification;
 

@@ -49,7 +49,7 @@ static TTTTimeIntervalFormatter *_timeFormatter;
     self.notification = notification;
     self.titleLabel.text = notification.content;
     self.descriptionLabel.text = notification.link;
-    
+
     NSDateFormatter *df = [NSDateFormatter new];
     [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
     
@@ -69,4 +69,5 @@ static TTTTimeIntervalFormatter *_timeFormatter;
     }
     
 }
+
 @end

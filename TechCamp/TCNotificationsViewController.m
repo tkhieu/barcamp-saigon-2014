@@ -10,6 +10,7 @@
 #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 #import "TCNotificationCell.h"
 #import "BCTopicClient.h"
+#import "SVModalWebViewController.h"
 
 @interface TCNotificationsViewController ()
 
@@ -33,7 +34,6 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshNotifications) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = self.refreshControl;
-    
     
     [self loadCachedNotification];
     [self refreshNotifications];
@@ -93,12 +93,28 @@
     TCNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     TCNotification *notificaton = [_notifications objectAtIndex:indexPath.row];
     
     [cell updateViewWithNotification:notificaton];
     
     return cell;
+
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TCNotification *notificaton = [_notifications objectAtIndex:indexPath.row];
+    
+    if ([notificaton.link rangeOfString:@"http://"].location == NSNotFound ||
+        [notificaton.link rangeOfString:@"https://"].location == NSNotFound) {
+        notificaton.link = [NSString stringWithFormat:@"http://%@", notificaton.link];
+    }
+    
+    SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:notificaton.link];
+    
+    webViewController.barsTintColor = [[UINavigationBar appearance] tintColor];
+    [self presentViewController:webViewController animated:YES completion:NULL];
 }
 
 /*

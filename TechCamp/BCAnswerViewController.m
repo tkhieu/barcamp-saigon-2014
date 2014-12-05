@@ -12,6 +12,7 @@
 @interface BCAnswerViewController ()
 
 @property (strong, nonatomic) NSString *answerId;
+@property (nonatomic) CGRect prevRect;
 
 @end
 
@@ -56,10 +57,10 @@
     
     for (NSInteger i = 0; i < self.question.answers.count; i++) {
         BCAnswer *answer = self.question.answers[i];
-        RadioButton *radio = [self createRadioButtonWithIndex:i];
         UILabel *label = [self labelAtIndex:i text:answer.content];
-        [self.viewAnswer addSubview:label];
+        RadioButton *radio = [self createRadioButtonWithIndex:i];
         [self.viewAnswer addSubview:radio];
+        [self.viewAnswer addSubview:label];
     }
     
     UIView *lastView = [self.viewAnswer.subviews lastObject];
@@ -91,10 +92,20 @@
         size = 64;
     }
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(size, size * index - 10, self.viewAnswer.frame.size.width - size - 20, size)];
+    CGRect frame = CGRectMake(size, size * index - 10, self.viewAnswer.frame.size.width - size - 20, size);
+    
+    if (index > 0) {
+        frame.origin.y = self.prevRect.origin.y + self.prevRect.size.height + 20;
+    }
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
     label.font = [UIFont fontWithName:label.font.familyName size:13.0f];
     label.numberOfLines = 0;
     label.text = text;
+    label.tag = index;
+    
+    [label sizeToFit];
+    self.prevRect = label.frame;
     
     return label;
 }
@@ -111,7 +122,9 @@
         size = 64;
     }
     
-    radio.frame = CGRectMake(0, size * index, size - 20, size - 20);
+    CGRect frame = CGRectMake(0, (self.prevRect.origin.y + self.prevRect.size.height) - self.prevRect.size.height / 2 - (size - 20) / 2, size - 20, size - 20);
+    
+    radio.frame = frame;
     radio.layer.borderColor = [UIColor blueColor].CGColor;
     radio.layer.borderWidth = 1;
     radio.layer.cornerRadius = radio.frame.size.height / 2;
