@@ -175,18 +175,6 @@
 }
 
 - (void)favButtonPressed:(id)sender {
-    
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
-
-    NSInteger day = [components day];
-    NSInteger month = [components month];
-    NSInteger year = [components year];
-    
-//    if (day != 14 || month != 12 || year != 2014) {
-//        [[[UIAlertView alloc] initWithTitle:@"Favorite" message:@"So excited! This feature will be available on event day." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-//        return;
-//    }
-    
     [self setFavourite:self.topic];
     self.favoriteButton.enabled = NO;
 }
